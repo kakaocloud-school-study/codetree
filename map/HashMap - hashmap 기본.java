@@ -15,7 +15,7 @@ public class Main {
 
             if (command.equals("add")) {
                 int key = Integer.parseInt(st.nextToken());
-                int value = Integer.parseInt(st.nextToken());
+                int value = 이 Integer.parseInt(st.nextToken());
                 map.put(key, value);
             } else if (command.equals("find")) {
                 int key = Integer.parseInt(st.nextToken());
