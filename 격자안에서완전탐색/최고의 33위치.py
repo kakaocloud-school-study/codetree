@@ -1,12 +1,9 @@
-#변수 선언
-n=5
+n=int(input())
 grid=[
-    [0,0,0,0,0],
-    [0,1,0,0,0],
-    [0,0,1,0,1],
-    [0,0,0,0,0],
-    [0,0,0,1,0],
+    list(map(int,input().split()))
+    for _ in range(n)
 ]
+
 
 def get_num_of_gold(row,col_s,col_e):
     num_of_gold=0
