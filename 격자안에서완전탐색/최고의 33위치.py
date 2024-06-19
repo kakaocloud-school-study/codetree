@@ -25,4 +25,3 @@ for row in range(n):
         max_gold=max(max_gold,num_of_gold)
 
 print(max_gold)
-
