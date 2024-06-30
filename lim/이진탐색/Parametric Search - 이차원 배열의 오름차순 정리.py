@@ -1,35 +1,38 @@
+'''
+행렬에서 한 행을 고정시키면 각 행은 i의 배수이므로 순서를 구하는 특정수에 i를 나눠 특정수보다 작은 수 개수를 셀수있다
+그외 자잘한 조건이 많다
+'''
+
+import math
 import sys
-from bisect import bisect_left
 
 
 def sol(n, k):
-    nn_nums = [i**2 for i in range(n+1)]
-    triangles = [0] * (n+1)
-    triangles[1] = 1
-    for i in range(2, n+1):
-        triangles[i] = triangles[i-1] + i
-    idx = bisect_left(nn_nums, k)
-    nn_order = triangles[idx] - triangles[n-idx] * 2
-    sqrt_nn = idx
-    order = nn_order
-    for row in range(sqrt_nn, n+1):
-        col = sqrt_nn*2 - row
-        if order == k:
-            print(row*col)
-            return
-        if row == col:
-            order -= 1
-        else:
-            order -= 2
-    for row in range(sqrt_nn, n+1):
-        col = sqrt_nn*2 - 1 - row
-        if order == k:
-            print(row*col)
-            return
-        if row == col:
-            order -= 1
-        else:
-            order -= 2
+    def get_order(num):
+        order = 1
+        for i in range(1, n+1):
+            lt_count = math.ceil(min(num, n*i+0.1) / i) - 1
+            order += lt_count
+        return order
+
+    def search(target_order):
+        left, right = 0, n**2
+        answer = -1
+        while left <= right:
+            mid = (left + right) // 2
+            min_order = get_order(mid)
+            max_order = get_order(mid+1) - 1
+            # print('order', min_order, max_order, 'left', left, 'right', right, 'mid', mid)
+            if min_order <= target_order and target_order <= max_order:
+                answer = mid
+                break
+            elif target_order < min_order:
+                right = mid - 1
+            else:
+                left = mid + 1
+        return answer
+
+    print(search(k))
 
 
 n = int(sys.stdin.readline())
