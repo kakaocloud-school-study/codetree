@@ -1,5 +1,5 @@
 /*
- * 14퍼센트에서 실패
+ * 14퍼센트에서 실패 -> Long.MAX_VALUE이라 해야하는데  Integer.MAX_VALUE로 함...
  */
 package lim.미분류;
 
@@ -44,16 +44,16 @@ public class 횡단보도_골드1_24042 {
             }
 
             for (ArrayList<Integer> dest : graph.get(item.node)) {
-                int e = dest.get(0);
-                int cost = dest.get(1);
+                int nNode = dest.get(0);
+                long cost = dest.get(1);
                 long timeDiff = cost - item.totalTime % m;
                 if (timeDiff < 0) {
                     timeDiff += m;
                 }
                 long newTotalTime = item.totalTime + timeDiff;
-                if (minDist[e] > newTotalTime) {
-                    queue.add(new Item(e, newTotalTime));
-                    minDist[e] = newTotalTime;
+                if (minDist[nNode] > newTotalTime) {
+                    queue.add(new Item(nNode, newTotalTime));
+                    minDist[nNode] = newTotalTime;
                 }
             }
         }
@@ -70,7 +70,7 @@ public class 횡단보도_골드1_24042 {
         m = Integer.parseInt(st.nextToken());
         minDist = new long[n + 1];
         for (int i = 0; i <= n; i++) {
-            minDist[i] = Integer.MAX_VALUE;
+            minDist[i] = Long.MAX_VALUE;
         }
         for (int i = 0; i < n + 1; i++) {
             graph.add(new ArrayList<>());
