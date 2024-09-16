@@ -13,7 +13,7 @@ directions = [(1, 0), (-1, 0), (0, -1), (0, 1)]
 # 방문 여부를 저장하는 배열
 visited = [[False] * n for _ in range(n)]
 
-# dfs를 이용해 영역을 탐색하고 색칠된 칸의 개수를 반환합니다.
+# dfs를 이용해 영역을 탐색하고 색칠된 칸의 개수를 반환.
 def dfs(x, y, d):
     if visited[x][y]:
         return 0
