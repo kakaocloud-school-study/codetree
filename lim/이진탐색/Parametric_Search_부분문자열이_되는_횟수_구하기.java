@@ -1,3 +1,4 @@
+package lim.이진탐색;
 
 /*
  * StringBuilder 필요함

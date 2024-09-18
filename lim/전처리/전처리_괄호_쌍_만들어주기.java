@@ -1,3 +1,5 @@
+package lim.전처리;
+
 import java.util.*;
 import java.io.*;
 

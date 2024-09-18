@@ -1,3 +1,5 @@
+package lim.이진탐색;
+
 import java.util.*;
 import java.io.*;
 
