@@ -13,7 +13,7 @@ dist = [[INT_MAX] * (n + 1) for _ in range(n + 1)]
 for i in range(1, n + 1):
     dist[i][i] = 0
 
-# 간선 정보 입력 받기 및 거리 갱신 (인접 행렬로 표현)
+# 간선 정보 입력 받기 및 거리 갱신 (인접 행렬로 표현)   
 for _ in range(m):
     x, y, z = map(int, input().split())
     # 동일한 x -> y 간선이 여러 번 주어질 수 있으므로 최소값을 유지
