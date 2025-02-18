@@ -1,3 +1,5 @@
+package lim.LR테크닉;
+
 import java.util.*;
 import java.io.*;
 
